@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { GameState } from "../types/game";
 import { Item } from "../types/item";
 import createState from "../lib/create-state";
 import Board from "./board";
 import Loading from "./loading";
 import Instructions from "./instructions";
-import badCards from "../lib/bad-cards";
+import {cards} from "../lib/getItems";
 
 export default function Game() {
   const [state, setState] = useState<GameState | null>(null);
@@ -16,21 +15,8 @@ export default function Game() {
 
   React.useEffect(() => {
     const fetchGameData = async () => {
-      const res = await axios.get<string>(
-        "https://wikitrivia-data.tomjwatson.com/items.json"
-      );
-      const items: Item[] = res.data
-        .trim()
-        .split("\n")
-        .map((line) => {
-          return JSON.parse(line);
-        })
-        // Filter out questions which give away their answers
-        .filter((item) => !item.label.includes(String(item.year)))
-        .filter((item) => !item.description.includes(String(item.year)))
-        .filter((item) => !item.description.includes(String("st century" || "nd century" || "th century")))
-        // Filter cards which have bad data as submitted in https://github.com/tom-james-watson/wikitrivia/discussions/2
-        .filter((item) => !(item.id in badCards));
+
+      const items: Item[] = cards;
       setItems(items);
     };
 

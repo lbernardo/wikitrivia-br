@@ -35,13 +35,13 @@ const datePropIdMap: { [datePropId: string]: string } = {
 };
 
 function capitalize(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  return str
 }
 
 export default function ItemCard(props: Props) {
   const { draggable, flippedId, index, item, setFlippedId } = props;
 
-  const flipped = item.id === flippedId;
+  const flipped = item.year.toString() === flippedId;
 
   const cardSpring = useSpring({
     opacity: flipped ? 1 : 0,
@@ -56,11 +56,9 @@ export default function ItemCard(props: Props) {
       return item.description.replace(/ \(.+\)/g, "");
     }
 
-    if (item.instance_of.includes("human") && item.occupations !== null) {
-      return item.occupations[0];
-    }
 
-    return item.instance_of[0];
+
+    return item.description
   }, [item]);
 
   return (
@@ -100,7 +98,7 @@ export default function ItemCard(props: Props) {
               <div
                 className={styles.image}
                 style={{
-                  backgroundImage: `url("${createWikimediaImage(item.image)}")`,
+                  backgroundImage: `url("${item.image}")`,
                 }}
               ></div>
               <animated.div
@@ -114,7 +112,7 @@ export default function ItemCard(props: Props) {
                     ? item.year < -10000
                       ? item.year.toLocaleString()
                       : item.year.toString()
-                    : datePropIdMap[item.date_prop_id]}
+                    : datePropIdMap[item.id]}
                 </span>
               </animated.div>
             </animated.div>
@@ -128,23 +126,9 @@ export default function ItemCard(props: Props) {
               }}
             >
               <span className={styles.label}>{capitalize(item.label)}</span>
-              <span className={styles.date}>
-                {capitalize(datePropIdMap[item.date_prop_id])}: {item.year}
-              </span>
+
               <span className={styles.description}>{item.description}.</span>
-              <a
-                href={`https://www.wikipedia.org/wiki/${encodeURIComponent(
-                  item.wikipedia_title
-                )}`}
-                className={styles.wikipedia}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                Wikipedia
-              </a>
+
             </animated.div>
           </div>
         );

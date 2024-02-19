@@ -6,6 +6,18 @@ interface Props {
   title: string;
 }
 
+
+function getMedal(score: number): string {
+  if (score >= 20) {
+    return "🥇 ";
+  } else if (score >= 10) {
+    return "🥈 ";
+  } else if (score >= 1) {
+    return "🥉 ";
+  }
+  return "";
+}
+
 export default function Score(props: Props) {
   const { score, title } = props;
 
@@ -22,7 +34,7 @@ export default function Score(props: Props) {
   return (
     <div className={styles.score} style={{ backgroundColor }}>
       <div className={styles.title}>{title}</div>
-      <div className={styles.value}>{score}</div>
+      <div className={styles.value}>{score} {getMedal(score)}</div>
     </div>
   );
 }

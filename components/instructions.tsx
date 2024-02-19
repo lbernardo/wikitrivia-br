@@ -15,13 +15,13 @@ export default function Instructions(props: Props) {
   return (
     <div className={styles.instructions}>
       <div className={styles.wrapper}>
-        <h2>Place the cards on the timeline in the correct order.</h2>
+        <h2>Coloque os cartões na linha do tempo na ordem correta.</h2>
         {highscore !== 0 && (
           <div className={styles.highscoreWrapper}>
-            <Score score={highscore} title="Best streak" />
+            <Score score={highscore} title="Melhor pontuação" />
           </div>
         )}
-        <Button onClick={start} text="Start game" />
+        <Button onClick={start} text="Jogar" />
         <div className={styles.about}>
           <div>
             All data sourced from{" "}
