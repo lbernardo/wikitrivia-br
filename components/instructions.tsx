@@ -1,5 +1,4 @@
 import React from "react";
-import GitHubButton from "react-github-btn";
 import styles from "../styles/instructions.module.scss";
 import Button from "./button";
 import Score from "./score";
@@ -45,14 +44,6 @@ export default function Instructions(props: Props) {
             </a>
             .
           </div>
-          <GitHubButton
-            href="https://github.com/lbernardo/wikitrivia-br"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star lbernardo/wikitrivia-br on GitHub"
-          >
-            Star
-          </GitHubButton>
         </div>
       </div>
     </div>

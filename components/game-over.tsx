@@ -11,16 +11,6 @@ interface Props {
 }
 
 
-function getMedal(score: number): string {
-  if (score >= 20) {
-    return "🥇 ";
-  } else if (score >= 10) {
-    return "🥈 ";
-  } else if (score >= 1) {
-    return "🥉 ";
-  }
-  return "";
-}
 
 export default function GameOver(props: Props) {
   const { highscore, resetGame, score } = props;

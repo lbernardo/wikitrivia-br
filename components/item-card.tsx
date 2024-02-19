@@ -3,7 +3,6 @@ import classNames from "classnames";
 import { useSpring, animated } from "react-spring";
 import { Draggable } from "react-beautiful-dnd";
 import { Item, PlayedItem } from "../types/item";
-import { createWikimediaImage } from "../lib/image";
 import styles from "../styles/item-card.module.scss";
 
 type Props = {
@@ -92,7 +91,6 @@ export default function ItemCard(props: Props) {
               }}
             >
               <div className={styles.top}>
-                <div className={styles.label}>{capitalize(item.label)}</div>
                 <div className={styles.description}>{capitalize(type)}</div>
               </div>
               <div
@@ -125,7 +123,6 @@ export default function ItemCard(props: Props) {
                 ),
               }}
             >
-              <span className={styles.label}>{capitalize(item.label)}</span>
 
               <span className={styles.description}>{item.description}.</span>
 
