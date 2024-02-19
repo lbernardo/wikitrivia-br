@@ -26,14 +26,6 @@ export default function Instructions(props: Props) {
           <div>
             All data sourced from{" "}
             <a
-              href="https://www.wikidata.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Wikidata
-            </a>{" "}
-            and{" "}
-            <a
               href="https://www.wikipedia.org"
               target="_blank"
               rel="noopener noreferrer"
@@ -45,7 +37,7 @@ export default function Instructions(props: Props) {
           <div>
             Have feedback? Please report it on{" "}
             <a
-              href="https://github.com/tom-james-watson/wikitrivia/issues/"
+              href="https://github.com/lbernardo/wikitrivia-br/issues/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,10 +46,10 @@ export default function Instructions(props: Props) {
             .
           </div>
           <GitHubButton
-            href="https://github.com/tom-james-watson/wikitrivia"
+            href="https://github.com/lbernardo/wikitrivia-br"
             data-size="large"
             data-show-count="true"
-            aria-label="Star tom-james-watson/wikitrivia on GitHub"
+            aria-label="Star lbernardo/wikitrivia-br on GitHub"
           >
             Star
           </GitHubButton>
